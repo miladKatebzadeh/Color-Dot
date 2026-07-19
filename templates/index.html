@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Dot - Reaction Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">Color Dot</h1>
+            <p class="subtitle">How fast can you find the color?</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Game Info Panel -->
+            <div class="glass-panel info-panel">
+                <div class="info-box">
+                    <div class="info-label">Score</div>
+                    <div class="info-value" id="currentScore">0</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Time</div>
+                    <div class="info-value" id="timeRemaining">30</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">Best</div>
+                    <div class="info-value" id="bestScore">0</div>
+                </div>
+            </div>
+
+            <!-- Game Area -->
+            <div class="game-container">
+                <div id="gameArea" class="game-area"></div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="glass-panel controls-panel">
+                <button id="startBtn" class="btn btn-primary">Start Game</button>
+                <button id="playAgainBtn" class="btn btn-secondary" style="display: none;">Play Again</button>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="gameOverScreen" class="game-over-screen" style="display: none;">
+                <div class="glass-panel game-over-content">
+                    <h2>Game Over!</h2>
+                    <div class="final-score">
+                        <p class="score-label">Final Score</p>
+                        <p class="score-value" id="finalScore">0</p>
+                    </div>
+                    <div class="best-score-display">
+                        <p class="score-label">Personal Best</p>
+                        <p class="score-value" id="bestScoreDisplay">0</p>
+                    </div>
+                    <button id="playAgainBtn2" class="btn btn-primary">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
