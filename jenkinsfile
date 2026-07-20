@@ -5,14 +5,17 @@ pipline {
 
         stage(name: 'Checkout'){
             echo(message: 'Cheking Out Source Code')
+            checkout scm 
         }
 
         stage(name: 'Install Dependencies'){
             echo(message: 'Installing Python')
+            sh 'pip install -r requirements.txt'
         }
         
         stage(name: 'Run Tests'){
             echo(message: 'Running Tests ....')
+            sh 'pytest'
         }
         
     }    
