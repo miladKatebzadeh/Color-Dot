@@ -1,37 +1,34 @@
 pipeline {
-    agent any 
+    agent any
 
-    stages{
+    stages {
 
-        stage('Checkout'){
+        stage('Checkout') {
             steps {
-            echo(message: 'Cheking Out Source Code')
-            }
-            checkout scm 
-        }
-
-        stage('Install Dependencies'){
-            steps {
-                echo(message: 'Installing Python')
-                sh 'pip install -r requirements.txt'
-            }
-        }
-        
-        stage('Run Tests'){
-            steps {
-                echo(message: 'Running Tests ....')
-                sh 'pytest'
-            }
-        }
-        
-    }    
-    post{
-            success{
-                echo(message: 'Pipline Completed Successfully')
-            }
-            failure{
-                echo(message: 'Pipline Failed')
+                echo 'Checking out source code...'
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing Python dependencies...'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
 }
