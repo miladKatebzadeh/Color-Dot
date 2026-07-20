@@ -3,19 +3,25 @@ pipeline {
 
     stages{
 
-        step('Checkout'){
-            checkout scm 
+        stage('Checkout'){
+            steps {
             echo(message: 'Cheking Out Source Code')
+            }
+            checkout scm 
         }
 
-        steptage('Install Dependencies'){
-            echo(message: 'Installing Python')
-            sh 'pip install -r requirements.txt'
+        stage('Install Dependencies'){
+            steps {
+                echo(message: 'Installing Python')
+                sh 'pip install -r requirements.txt'
+            }
         }
         
-        steptage('Run Tests'){
-            echo(message: 'Running Tests ....')
-            sh 'pytest'
+        stage('Run Tests'){
+            steps {
+                echo(message: 'Running Tests ....')
+                sh 'pytest'
+            }
         }
         
     }    
