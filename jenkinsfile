@@ -1,0 +1,28 @@
+pipline {
+    agent any 
+
+    stages{
+
+        stage(name: 'Checkout'){
+            echo(message: 'Cheking Out Source Code')
+        }
+
+        stage(name: 'Install Dependencies'){
+            echo(message: 'Installing Python')
+        }
+        
+        stage(name: 'Run Tests'){
+            echo(message: 'Running Tests ....')
+        }
+        
+    }    
+    post{
+            success{
+                echo(message: 'Pipline Completed Successfully')
+            }
+            failure{
+                echo(message: 'Pipline Failed')
+            }
+        }
+
+}
