@@ -33,6 +33,36 @@ pipeline {
                 '''
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                docker build -t color-dot:${BUILD_NUMBER} .
+                '''
+            }
+
+        }
+        stage('deploy Application') {
+            steps {
+                sh '''
+                docker rm -f color-dot || true
+
+                docker run -d --name color-dot -p 5001:5000 color-dot:${BUILD_NUMBER}
+                '''
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh '''
+                sleep 5
+                curl --fail http://localhost:5001/health
+
+                '''
+            }
+        }
+
+
+
 
         // stage('Run Project') {
         //         steps {
