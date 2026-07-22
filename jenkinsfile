@@ -20,6 +20,7 @@ pipeline {
                 . $VENV/bin/activate
                 pip install -r requirements.txt
                 pip install pytest
+                pip install gunicorn
                 '''
             }
         }
@@ -27,6 +28,7 @@ pipeline {
         stage('Run Project') {
                 steps {
                         sh '''
+                        . $VENV/bin/activate
                         gunicorn  --bind 0.0.0.0:5000 main:app
                         '''
                     }
