@@ -25,25 +25,26 @@ pipeline {
             }
         }
 
-        stage('Run Project') {
-                steps {
-                        sh '''
-                        . $VENV/bin/activate
-                        gunicorn  --bind 0.0.0.0:5000 app:app
-                        '''
-                    }
-                }
+        stage('Run Tests') {
+            steps {
+                sh '''
+                . $VENV/bin/activate
+                pytest test/ --junitxml=results.xml
+                '''
+            }
+        }
+
+        // stage('Run Project') {
+        //         steps {
+        //                 sh '''
+        //                 . $VENV/bin/activate
+        //                 gunicorn  --bind 0.0.0.0:5000 app:app
+        //                 '''
+        //             }
+        //         }
 
 
 
-        // stage('Run Tests') {
-        //     steps {
-        //         sh '''
-        //         . $VENV/bin/activate
-        //         pytest test/ --junitxml=results.xml
-        //         '''
-        //     }
-        // }
     }
 
     post {
