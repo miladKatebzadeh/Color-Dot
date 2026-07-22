@@ -33,6 +33,17 @@ pipeline {
         //         '''
         //     }
         // }
+
+        stage('Debug User') {
+            steps {
+                sh '''
+                whoami
+                id
+                ls -l /var/run/docker.sock
+                docker version
+                '''
+                }
+        }
         stage('Build Docker Image') {
             steps {
                 sh '''
