@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh '''
                 . $VENV/bin/activate
-                pytest test/ --junitxml=results.xml
+                pytest
                 '''
             }
         }
