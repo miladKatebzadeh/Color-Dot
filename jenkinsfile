@@ -25,10 +25,9 @@ pipeline {
         }
 
         stage('Run Project') {
-                    steps {
+                steps {
                         sh '''
-                        
-                       
+                        guinite  --bind 0.0.0.0:5000 main:app
                         '''
                     }
                 }
