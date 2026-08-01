@@ -5,6 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+
 DATABASE = 'database.db'
 
 def get_db_connection():
