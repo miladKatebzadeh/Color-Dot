@@ -1,9 +1,12 @@
 from flask import Flask, render_template, jsonify, request
+from flask import Flask
+from prometheus_flask_exporter import PrometheusMetrics
 import sqlite3
 import os
 from datetime import datetime
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 
 DATABASE = 'database.db'
