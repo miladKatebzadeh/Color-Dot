@@ -21,7 +21,8 @@ pipeline {
                 pip install -r requirements.txt
                 pip install pytest
                 pip install gunicorn
-                pip install prometheus-flask-exporter
+                pip install prometheus-flask-exporter=0.23.2
+                pip list
                 '''
             }
         }
