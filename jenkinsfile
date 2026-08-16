@@ -58,7 +58,7 @@ pipeline {
                 sh '''
                 docker rm -f color-dot || true
 
-                docker run -d --network devops-net --name color-dot -p 5001:5000 color-dot:${BUILD_NUMBER}
+                docker run -d --network devops --name color-dot -p 5001:5000 color-dot:${BUILD_NUMBER}
                 '''
             }
         }
