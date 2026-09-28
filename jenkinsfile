@@ -42,7 +42,6 @@ pipeline {
                 whoami
                 id
                 ls -l /var/run/docker.sock
-                docker version
                 '''
                 }
         }
