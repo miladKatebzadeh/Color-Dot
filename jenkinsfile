@@ -4,9 +4,7 @@ pipeline {
     environment{
         VENV=".venv"
     }
-    tools {
-        dockerTool 'docker-cli'
-    }
+    
     stages {
 
         stage('Checkout') {
