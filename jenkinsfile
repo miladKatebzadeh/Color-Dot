@@ -4,7 +4,7 @@ pipeline {
     environment{
         VENV=".venv"
     }
-    
+
     stages {
 
         stage('Checkout') {
@@ -16,7 +16,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                
                 python3 -m venv $VENV
                 . $VENV/bin/activate
                 pip install -r requirements.txt
@@ -26,16 +25,6 @@ pipeline {
                 '''
             }
         }
-
-        // stage('Run Tests') {
-        //     steps {
-        //         sh '''
-        //         . $VENV/bin/activate
-        //         pytest
-        //         '''
-        //     }
-        // }
-
        
         stage('Build Docker Image') {
             
@@ -65,20 +54,6 @@ pipeline {
                 '''
             }
         }
-
-
-
-
-        // stage('Run Project') {
-        //         steps {
-        //                 sh '''
-        //                 . $VENV/bin/activate
-        //                 gunicorn  --bind 0.0.0.0:5000 app:app
-        //                 '''
-        //             }
-        //         }
-
-
 
     }
 
