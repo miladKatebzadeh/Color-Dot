@@ -5,7 +5,7 @@ pipeline {
         VENV=".venv"
     }
     tools {
-        docker 'docker-cli'
+        dockerTool 'docker-cli'
     }
     stages {
 
