@@ -98,4 +98,8 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
+    tools {
+    docker 'docker-cli'
+}
+
 }
