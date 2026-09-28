@@ -4,6 +4,9 @@ pipeline {
     environment{
         VENV=".venv"
     }
+    tools {
+        docker 'docker-cli'
+    }
     stages {
 
         stage('Checkout') {
@@ -98,8 +101,6 @@ pipeline {
             echo 'Pipeline failed!'
         }
     }
-    tools {
-        docker 'docker-cli'
-}
+   
 
 }
